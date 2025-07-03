@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Tebak Angka</title>
+  <script src="tebak6.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #a8e063, #56ab2f);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #2e7d32;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Tebak Angka!</h1>
+    <p>Masukkan angka antara 1 sampai 10</p>
+    <input type="number" id="guess" min="1" max="10" />
+    <br />
+    <button onclick="tebak()">Tebak</button>
+    <button id="resetBtn" onclick="resetGame()" style="display: none;">🔄 Main Lagi</button>
+    <audio id="suaraBenar" src="bright-notification-352449.mp3"></audio>
+    <audio id="suaraSalah" src="error-126627.mp3"></audio>
+    <audio id="suaraError" src="bom-waktu.mp3"></audio>
+    
+    <p id="message"></p>
+    <p id="status"></p>
+    
+    <!-- <p id="message"></p> -->
+  </div>
+
+  <!-- <script>
+    const angkaBenar = Math.floor(Math.random() * 100) + 1;
+    console.log(angkaBenar) // cek angka yang benar
+
+    function tebak() {
+      const tebakan = parseInt(document.getElementById("guess").value);
+      const pesan = document.getElementById("message");
+
+      if (isNaN(tebakan)) {
+        pesan.textContent = "Masukkan angka yang valid!";
+      } else if (tebakan < angkaBenar) {
+        pesan.textContent = "Terlalu rendah! Coba lagi.";
+      } else if (tebakan > angkaBenar) {
+        pesan.textContent = "Terlalu tinggi! Coba lagi.";
+      } else {
+        pesan.textContent = "🎉 Selamat! Tebakanmu dengan benar!";
+      }
+
+    }
+  </script> -->
+  <script>
+    let coba = 1
+    let maxCoba = 3
+
+    const tebakanBenar = Math.floor(Math.random() * 100) + 1;
+    console.log(tebakanBenar) // cek angka yang benar
+
+    while (coba <= maxCoba) {
+    // console.log(coba) // cek angka yang benar
+    let tebakan = Number(prompt("Masukkan tebakan Anda 1 - 100:"));
+    
+    if (tebakan == tebakanBenar) {
+        alert("🎉 SELAMAT! Tebakanmu dengan benar!")
+        break
+      } else if (tebakan < tebakanBenar) {
+        alert("Terlalu rendah! Coba lagi.")
+      } else if (tebakan > tebakanBenar) {
+        alert("Terlalu tinggi! Coba lagi.")
+      } else {
+        alert("Masukkan TEBAKAN dengan benar!")
+      }
+      
+      coba++ 
+    }
+    
+    if (coba > maxCoba) {
+      alert("Kesempatan tebakan Anda sudah HABIS!")
+    }
+
+    </script>
+<!-- <script>
+  var coba = 1
+  var maxCoba = 3
+
+  const angkaBenar = Math.floor(Math.random() * 10) + 1;
+  console.log(angkaBenar) // cek angka yang benar
+
+  while (coba <= maxCoba) {
+  // console.log(coba) // cek angka yang benar
+  var tebakan = prompt("Masukkan tebakan Anda ")
+
+    coba++
+
+    if (tebakan == angkaBenar) {
+      pesan = "🎉 Selamat! Tebakanmu dengan benar!"
+    } else if (tebakan < angkaBenar) {
+      pesan = "Terlalu rendah!"
+    } else if (tebakan > angkaBenar) {
+      pesan = "Terlalu tinggi!"
+    } else {
+      pesan = "Masukkan Tebakan dengan benar!"
+    }
+    alert(pesan)
+  }
+  
+  if (coba = maxCoba) {
+    alert("Kesempatan TEBAKAN Anda sudah habis!")
+  }
+  
+
+</script> -->
+
+</body>
+
+</html>
