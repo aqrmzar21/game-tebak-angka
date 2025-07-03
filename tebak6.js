@@ -10,7 +10,7 @@ function tebak() {
   const tebakan = parseInt(document.getElementById("guess").value);
   const pesan = document.getElementById("message");
   const status = document.getElementById("status");
-  const suarError = document.getElementById("suarError");
+  const suaraError = document.getElementById("suarError");
   const suaraBenar = document.getElementById("suaraBenar");
   const suaraSalah = document.getElementById("suaraSalah");
 
@@ -37,7 +37,8 @@ function tebak() {
   }
   
   if (percobaan >= maxPercobaan) {
-    pesan.textContent += ` 😞 Kamu sudah mencoba ${maxPercobaan} kali. Jawaban yang benar adalah ${angkaBenar}.`;
+    pesan.textContent = `😞 Kamu sudah mencoba ${maxPercobaan} kali. Jawaban yang benar adalah ${angkaBenar}.`;
+    pesan.classList.add("fade-red"); // Tambahkan efek animasi dan warna merah
     suaraError.play();
     selesai = true;
     document.getElementById("resetBtn").style.display = "inline-block";
@@ -50,6 +51,7 @@ function resetGame() {
   percobaan = 0;
   selesai = false;
 
+  pesan.classList.remove("fade-red"); // Hapus kelas efek saat reset
   // Kosongkan input, pesan, status
   document.getElementById("guess").value = "";
   document.getElementById("message").textContent = "";

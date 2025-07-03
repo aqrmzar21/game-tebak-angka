@@ -87,12 +87,12 @@
     let coba = 1
     let maxCoba = 3
 
-    const tebakanBenar = Math.floor(Math.random() * 100) + 1;
+    const tebakanBenar = Math.floor(Math.random() * 10) + 1;
     console.log(tebakanBenar) // cek angka yang benar
 
     while (coba <= maxCoba) {
     // console.log(coba) // cek angka yang benar
-    let tebakan = Number(prompt("Masukkan tebakan Anda 1 - 100:"));
+    let tebakan = Number(prompt("Masukkan tebakan Anda 1 - 10:"));
     
     if (tebakan == tebakanBenar) {
         alert("🎉 SELAMAT! Tebakanmu dengan benar!")
